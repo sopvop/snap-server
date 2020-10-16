@@ -89,7 +89,7 @@ bindUnixSocket mode path = do
          Just mode' -> bracket (setFileCreationMask $ modeToMask mode')
                               setFileCreationMask
                               (const $ bind sock (N.SockAddrUnix path))
-      N.listen sock 150
+      N.listen sock 1500
       return $! sock
    where
 #if MIN_VERSION_network(2,7,0)
